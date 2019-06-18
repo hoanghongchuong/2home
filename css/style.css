@@ -495,7 +495,7 @@ span.flatpickr-weekday {
 
 
 .rooms-details-body header h5{
-    height : 60px !important;
+    /*height : 60px !important;*/
 }
 .rooms-details-body header h5 a{
     font-size :13px !important;
@@ -1303,7 +1303,7 @@ footer .footer-item .footer-item-content .gallery-item img {
 
 /** PAGE BANNER AREA START **/
 .page-banner {
-    background-image: url(../img/header.png);
+    background-image: url(../images/header.png);
     background-repeat: no-repeat;
     background-size: cover;
     padding: 100px 0px;
@@ -1360,7 +1360,7 @@ footer .footer-item .footer-item-content .gallery-item img {
     display: inline-block;
     padding-right: 20px;
     border-radius: 3px 0 0 3px;
-    background: #764B28;
+    background: #3390FF;
     margin: 0 0 0px;
 }
 
@@ -1372,6 +1372,8 @@ footer .footer-item .footer-item-content .gallery-item img {
     display: inline-block;
     border-radius: 3px 0 0 3px;
     position: relative;
+    padding: 15px;
+
 }
 
 .block-heading .heading-icon .icon-design {
@@ -1379,7 +1381,7 @@ footer .footer-item .footer-item-content .gallery-item img {
     font-size: 20px;
     position: absolute;
     right: -7px;
-    top: 16px;
+    top: 15px;
 }
 
 .toggle-view {
@@ -1446,7 +1448,7 @@ footer .footer-item .footer-item-content .gallery-item img {
     text-decoration: none;
     text-transform: uppercase;
     font-size: 17px;
-    color: #764B28;
+    color: #3390FF;
 }
 
 .rooms-list-box .detail-body header h5 a:hover {
@@ -1563,7 +1565,7 @@ footer .footer-item .footer-item-content .gallery-item img {
     font-weight: 600;
     margin: 0px 0 30px;
     font-size: 20px;
-    color: #764B28;
+    color: #3390FF;
     border-bottom: solid 1px #e0e0e0;
     padding-bottom: 10px;
 }
@@ -1732,7 +1734,7 @@ input[type=checkbox]:checked + label:before {
     width: 34px;
     height: 34px;
     line-height: 34px;
-    background: #764B28;
+    background: #3390FF;
     text-align: center;
     border-radius: 50%;
     color: #fff;
@@ -2225,16 +2227,16 @@ input[type=checkbox]:checked + label:before {
 
 .book-btn {
     display: block;
-    background: #764B28;
+    background: #3390FF;
     height: 41px;
     margin-bottom: 15px;
-    border: 1px solid #764B28;
+    border: 1px solid #3390FF;
     border-radius: 3px;
     width: 100%;
 }
 
 .book-btn:hover {
-    background: #764B28;
+    background: #3390FF;
 }
 
 .book-btn:disabled { cursor: not-allowed;}
@@ -3682,7 +3684,7 @@ label {
 }
 
 .bg-danger {
-    background-color: #764B28;
+    background-color: #3390FF;
 }
 
 .bg-gray {
@@ -3829,7 +3831,7 @@ label {
     }
 
     .page-banner {
-        padding: 50px 0px;
+        /*padding: 50px 0px;*/
     }
 
     .mgn-btm {

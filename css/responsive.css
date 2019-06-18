@@ -1,25 +1,6 @@
 @media (max-width: 767px){
-	.name-cate{
-		font-size: 22px;
-	}
-	.list-item .item img{
-		height: 96px;
-	}
-	.box-camket h3{
-		font-size: 22px;
-	}
-	.list-camket{
-		margin-top: 0px;
-	}
-	.owl-carousel-project .item img, .box-news-home img{
-	    height: auto;
-	}
-	.list-box img{
-		height: 108px;
-	}
-	.img-logo{
-		text-align: center;
-		margin-top: 5px;
+	.p-sticky{
+		position: static;
 	}
 }
 @media (min-width: 768px) {
