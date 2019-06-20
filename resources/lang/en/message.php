@@ -9,5 +9,6 @@
           'address' => 'Please fill out this field',   
           'content' => 'Please fill out this field',
           'post_order_fail' => 'Empty Cart',
-          'post_order_success' => 'Order Success'     
+          'post_order_success' => 'Order Success',
+          'end_date' => 'Please fill out this field',     
     ];

@@ -7,6 +7,7 @@ use Exception;
 
 class Bill extends Model
 {
+	protected $fillable =['full_name','phone','email','start_date','end_date','children','adult'];
    	// public function getDetailAttribute($value) 
     // {
     // 	try {

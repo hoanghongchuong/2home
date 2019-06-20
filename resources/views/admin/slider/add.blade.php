@@ -68,17 +68,17 @@
 									
 								</div>
 	                  		</div>
-	                  		<div class="row">
+	                  		<!-- <div class="row">
 	                  			<div class="col-md-12">
 	                  				<div class="form-group">
 								      	<label for="desc">Mô tả</label>
 								      	<textarea name="content_vi" rows="5" class="form-control"></textarea>
 									</div>
 	                  			</div>
-	                  		</div>
+	                  		</div> -->
 	                  		
 	                  	</div>
-	                  	<div class="tab-pane" id="tab_2">
+	                  	<!-- <div class="tab-pane" id="tab_2">
 	                  		<div class="row">
 	                  			<div class="col-md-12 col-xs-12">
 									<div class="form-group">
@@ -87,7 +87,7 @@
 									</div>
 								</div>
 	                  		</div>	                  		
-	                  	</div>
+	                  	</div> -->
 	                  	<div class="tab-pane" id="tab_3">
 	                  		<div class="row">
 	                  			<div class="col-md-12 col-xs-12">

@@ -95,13 +95,13 @@
                       <a href="backend/product/edit?id={{$item->id}}&hienthi={{ time() }}&type={{ @$_GET['type'] }}" class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Hiển thị</a>
                     @endif
                   </div>
-                  <!-- <div class="form-group"> 
+                  <div class="form-group"> 
                     @if($item->noibat>0)
                       <a href="backend/product/edit?id={{$item->id}}&noibat={{ time() }}&type={{ @$_GET['type'] }}" class="btn btn-primary btn-xs"><i class="fa fa-eye"></i> Nổi bật</a>
                     @else
                       <a href="backend/product/edit?id={{$item->id}}&noibat={{ time() }}&type={{ @$_GET['type'] }}" class="btn btn-danger btn-xs"><i class="fa fa-eye"></i> Nổi bật</a>
                     @endif
-                  </div> -->
+                  </div>
                 </td>
                 <td class="text-center with_dieuhuong">
                   <i class="fa fa-pencil fa-fw"></i><a href="backend/product/edit?id={{$item->id}}&type={{ @$_GET['type'] }}">Edit</a>

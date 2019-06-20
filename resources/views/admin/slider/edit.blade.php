@@ -64,14 +64,14 @@
 								
 							</div>
 	                	</div>
-	                	<div class="row">
+	                	<!-- <div class="row">
 	                		<div class="col-md-12">
 	                			<div class="form-group">
 							      	<label for="desc">Mô tả tiếng việt</label>
 							      	<textarea name="content_vi" rows="5" id="txtContent" class="form-control">{{ $data->content_vi }}</textarea>
 								</div>
 	                		</div>
-	                	</div>
+	                	</div> -->
 	                </div>
 	                <div class="tab-pane" id="tab_2">
 	                	<div class="row">
@@ -92,14 +92,14 @@
 		
 							</div>
 	                	</div>
-	                	<div class="row">
+	                	<!-- <div class="row">
 	                		<div class="col-md-12">
 	                			<div class="form-group">
 							      	<label for="desc">Mô tả tiếng anh</label>
 							      	<textarea name="content_en" rows="5" id="txtContent" class="form-control">{{ $data->content_en }}</textarea>
 								</div>
 	                		</div>
-	                	</div>                	
+	                	</div> -->                	
 	                </div>
 	                <div class="tab-pane" id="tab_3">
 	                	<div class="row">

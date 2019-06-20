@@ -172,36 +172,16 @@ $setting = \App\Setting::where('id', 1)->first()->toArray();
                      </p>
                      <!-- Facilities List -->
                     <ul class="facilities-list">
-                        <li>
-                           <i class="flaticon-home"></i>
-                           <span>
-                           Studio
-                           </span>
-                        </li>
-                        <li>
-                           <i class="flaticon-air-conditioner"></i>
-                           <span>Điều hoà</span>
-                        </li>
-                        <li>
-                           <i class="flaticon-room-service"></i>
-                           <span>Dịch vụ phòng</span>
-                        </li>
-                        <li>
-                           <i class="flaticon-wifi"></i>
-                           <span>Wifi miễn phí</span>
-                        </li>
-                        <li>
-                           <i class="flaticon-monitor"></i>
-                           <span>TV</span>
-                        </li>
-                        <li>
-                           <i class="flaticon-person-enjoying-jacuzzi-hot-water-bath"></i>
-                           <span>1 Tắm đứng</span>
-                        </li>
-                        <li>
-                           <i class="flaticon-person-enjoying-jacuzzi-hot-water-bath"></i>
-                           <span>0 Bồn tắm</span>
-                        </li>
+                      <?php $convenientCurrent = \App\Convenient::whereIn('id', explode(',',$item['convenient_id']))->get(); ?>
+                        @if($convenientCurrent)
+                            @foreach($convenientCurrent as $convenient)
+                            <li>
+                              <!-- <i class="flaticon-air-conditioner"></i> -->                                    
+                              <span>{{$convenient['name_'.$lang]}}</span>                                    
+                            </li>
+                          @endforeach
+                        @endif 
+                        
                     </ul>
                      <div class="clearfix"></div>
                     <p>

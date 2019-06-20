@@ -27,7 +27,7 @@
                         <a href="{{url('')}}">{{trans('label.home')}}</a>
                     </li>
                     <li>
-                        <a href="{{url('phong')}}">Phòng/căn hộ</a>
+                        <a href="{{url('phong')}}">{{trans('label.room_apartment')}}</a>
                     </li>
                     <li>
                         <a href="{{url('dich-vu')}}">{{trans('label.service')}}</a>

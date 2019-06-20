@@ -6,6 +6,7 @@ use App\Http\Requests\ProductRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Products;
+use App\Convenient;
 use App\Images;
 use App\ThuongHieu;
 use App\ProductCate;
@@ -35,9 +36,10 @@ class ProductController extends Controller
             $com='';
         }
         $data = Products::where('com',$com)->get();
+        $convenients = Convenient::get();
         $parent = ProductCate::where('com',$com)->get();
         
-        return view('admin.product.add', compact('data','parent'));
+        return view('admin.product.add', compact('data','parent','convenients'));
     }
     public function postAdd(ProductRequest $request)
     {
@@ -114,7 +116,8 @@ class ProductController extends Controller
         if(!empty($request->properties)){
             $product->properties = implode('###',$request->properties);
         }
-         
+        $product->convenient_id = implode($request->convenient, ',');
+        // dd($product->convenient);
         $product->save();
         // dd($product);
         $product_id = $product->id;
@@ -182,9 +185,11 @@ class ProductController extends Controller
             $parent = ProductCate::orderBy('stt', 'asc')->get()->toArray();
             $product = Products::select('stt')->orderBy('id','asc')->get()->toArray();
             $product_img = Products::find($id)->pimg;
+            $convenients = Convenient::get();
+            $convenientCurrent = explode(',',$data->convenient_id);
             // $fileRead = Products::find($id)->pimgFile;
             // Gọi view edit.blade.php hiển thị bải viết
-            return view('admin.product.edit',compact('data','product','id','parent','product_img'));
+            return view('admin.product.edit',compact('data','product','id','parent','product_img','convenients','convenientCurrent'));
         }else{
             $data = Products::all();
             $parent = ProductCate::orderBy('stt', 'asc')->get()->toArray();
@@ -289,7 +294,7 @@ class ProductController extends Controller
             $product->address_vi = $request->address_vi;
             $product->address_en = $request->address_en;
             $product->user_id       = Auth::user()->id;
-
+            $product->convenient_id = implode($request->convenient, ',');
             // dd($product->description);
 
             $product->save();

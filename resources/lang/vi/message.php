@@ -4,6 +4,7 @@
           'post_req_success' => 'Send successful',
           'name' => 'Chưa điền tên',   
           'phone' => 'Chưa điền số điện thoại',   
+          'end_date' => 'Chưa nhập dữ liệu',
           'email' => 'Chưa điền email',   
           'email_invalid' => 'Email không hợp lệ',   
           'address' => 'Chưa điền địa chỉ',   

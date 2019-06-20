@@ -46,4 +46,6 @@
                 'service' => "",
                 'book_now' => "",
                 'room_apartment' => "",
+                'roomhot' => "",
+                'another_room' => "",
                 ];

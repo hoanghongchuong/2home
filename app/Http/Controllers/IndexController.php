@@ -53,14 +53,12 @@ class IndexController extends Controller {
 	}
 	public function index() {
 		$lang = Session::get('locale');
-		$projects = News::where('status',1)->where('com','du-an')->orderBy('id','desc')->take(8)->get()->toArray();
-		$news = News::where('status',1)->where('com','tin-tuc')->orderBy('id','desc')->take(5)->get()->toArray();
-		$hot_news = News::where('status',1)->where('com','tin-tuc')->where('noibat',1)->orderBy('id','desc')->take(4)->get()->toArray();
-		$hotProducts = Products::where('noibat',1)->where('status',1)->take(20)->orderBy('id','desc')->get()->toArray();
+		$news = News::where('status',1)->where('com','tin-tuc')->orderBy('id','desc')->take(4)->get()->toArray();
+		$hotProducts = Products::where('com','san-pham')->where('noibat',1)->where('status',1)->take(3)->orderBy('id','desc')->get()->toArray();
+		$products = Products::where('com','san-pham')->where('status',1)->take(8)->orderBy('id','desc')->get()->toArray();
 		$slogans = Slogan::get();
 		$partners = DB::table('lienket')->where('com','doitac')->orWhere('com','khachhang')->get();
 		$about_home = About::where('status',1)->where('com','gioi-thieu')->first()->toArray();
-		$feedbacks = Feedback::get()->toArray();
 		// Cấu hình SEO
 		$setting = Cache::get('setting');
 		$sliders = Slider::where('com','gioi-thieu')->where('status',1)->get()->toArray();
@@ -69,7 +67,7 @@ class IndexController extends Controller {
 		$description = $setting->description_vi;
 		// End cấu hình SEO
 		$img_share = asset('upload/hinhanh/' . $setting->photo);
-		return view('templates.index_tpl', compact('sliders', 'com', 'about', 'news', 'keyword', 'description', 'title', 'img_share', 'hotProducts', 'slider', 'partners', 'projects', 'lang', 'about_video', 'feedbacks','about_home','hot_news','slogans'));
+		return view('templates.index_tpl', compact('sliders', 'com', 'about', 'news', 'keyword', 'description', 'title', 'img_share', 'hotProducts', 'slider', 'partners', 'projects', 'lang', 'about_video', 'feedbacks','about_home','hot_news','slogans','products'));
 	}
 
 	public function getAbout() {
@@ -260,6 +258,7 @@ class IndexController extends Controller {
 	{
 		$lang = Session::get('locale');
 		$data = Products::where('alias_vi',$alias)->first()->toArray();
+		$convenientCurrent = \App\Convenient::whereIn('id', explode(',',$data['convenient_id']))->get();
 		$albums = Images::where('product_id', $data['id'])->get()->toArray();
 		$services = News::where('com','dich-vu')->where('status',1)->get();
 		$relatedProducts = Products::where('status',1)->where('cate_id',$data["cate_id"])->take(6)->get()->toArray();
@@ -267,7 +266,7 @@ class IndexController extends Controller {
 		$title = $data["title_".$lang] ? $data["title_".$lang] : $data["name_".$lang];
 		$description = $data["description_".$lang] ? $data["description_".$lang] : $data["name_".$lang];
 		$keyword = $data["keyword_".$lang] ? $data["keyword_".$lang] : $data["name_".$lang];
-		return view('templates.product_detail_tpl', compact('lang','data','title','description','keyword','com','albums','relatedProducts','services'));
+		return view('templates.product_detail_tpl', compact('lang','data','title','description','keyword','com','albums','relatedProducts','services','convenientCurrent'));
 	}
 	public function getContact() {
 		$lang = Session::get('locale');

@@ -46,4 +46,6 @@
                 'service' => "Service",
                 'book_now' => "Book now",
                 'room_apartment' => "Room/Apartment",
+                'roomhot' => "Room Hot",
+                'another_room' => "Another Room",
                 ];

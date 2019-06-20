@@ -55,6 +55,6 @@
 <!-- Sub Footer-->
 <div class="sub-footer">
     <div class="container">
-        <span>Copyright 2019. Bản quyền thuộc về: Công ty cổ phần hungthinh.ads</span>
+        <span>Copyright 2019. Bản quyền thuộc về: Công ty cổ phần hungthinhads</span>
     </div>
 </div>

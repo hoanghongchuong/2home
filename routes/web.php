@@ -166,7 +166,17 @@ Route::group(['middleware' =>'admin', 'prefix' => 'backend'], function(){
 
 		Route::get('delete/{id}',['as'=>'admin.video.delete','uses'=>'Admin\VideoController@delete']);
 	});
-	
+	Route::group(['prefix'=>'convenient'], function(){
+		Route::get('/',['as'=>'admin.convenient.index', 'uses'=>'Admin\ConvenientController@index']);
+
+		Route::get('create',['as'=>'admin.convenient.getCreate', 'uses'=>'Admin\ConvenientController@getCreate']);
+		Route::post('create',['as'=>'admin.convenient.postCreate', 'uses'=>'Admin\ConvenientController@postCreate']);
+
+		Route::get('edit/{id}',['as'=>'admin.convenient.getEdit', 'uses'=>'Admin\ConvenientController@getEdit']);
+		Route::post('edit/{id}',['as'=>'admin.convenient.postEdit', 'uses'=>'Admin\ConvenientController@postEdit']);
+
+		Route::get('delete/{id}',['as'=>'admin.video.delete','uses'=>'Admin\VideoController@delete']);
+	});
 	Route::group(['prefix'=>'feedback'], function(){
 		Route::get('/',['as'=>'admin.feedback.index','uses'=>'Admin\FeedbackController@index']);
 		Route::get('add',['as'=>'admin.feedback.create','uses'=>'Admin\FeedbackController@getCreate']);
@@ -361,6 +371,7 @@ Route::get('caculator', 'IndexController@getCaculator');
 	Route::get('faq', 'IndexController@faq');
 	// gio hang
 	Route::get('thanh-toan',['as'=>'thanhtoan', 'uses' => 'IndexController@thanhtoan']);
+	Route::post('book/room', 'ContactController@bookRoom')->name('book.room');
 
 	Route::get('gio-hang',['as'=>'getCart', 'uses'=>'IndexController@getCart']);
 	Route::post('cart/add', ['as' => 'addProductToCart', 'uses' => 'IndexController@addCart']);

@@ -168,14 +168,15 @@
                          </div>
                       </div>
                       <p>{!! str_limit($data['content_'.$lang], 200) !!}</p>
-                      <form method="GET" action="/dat-hang.html" id="frm-mobile-booking">                        
+                      <form method="post" action="{{route('book.room')}}" id="frm-mobile-booking">
+                        {{csrf_field()}}                      
                             <div class="row">
                                 <div class="form-group">
-                                    <label for="checkin">Họ tên<i class="text-danger">*</i></label>
-                                    <input type="text" name="name" class="form-control">
+                                    <label for="checkin">{{trans('label.hoten')}}<i class="text-danger">*</i></label>
+                                    <input type="text" name="full_name" class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="checkin">Số điện thoại<i class="text-danger">*</i></label>
+                                    <label for="checkin">{{trans('label.phone')}}<i class="text-danger">*</i></label>
                                     <input type="text" name="phone" class="form-control">
                                 </div>
                                 <div class="form-group">
@@ -183,15 +184,10 @@
                                     <input type="text" name="email" class="form-control">
                                 </div>
                             </div>
+                            
                             <div class="row">
                                 <div class="form-group">
-                                   <label for="checkout">Ngày trả phòng <i class="text-danger">*</i></label>
-                                   <input readonly class="datetime-end form-control" name="checkout" id="time_checkout" placeholder="Ngày trả phòng" readonly="readonly" type="text">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group">
-                                    <label for="checkin">Thời gian nhận phòng <i class="text-danger">*</i></label>
+                                    <label for="checkin">{{$lang =='vi' ? "Thời gian nhận phòng" : "Time check inn"}} <i class="text-danger">*</i></label>
                                     <div class="input-group date datetimepicker1">
                                         <input type='text' class="form-control" name="start_date" />
                                         <span class="input-group-addon">
@@ -203,7 +199,7 @@
                             </div>
                             <div class="row">
                                 <div class="form-group">
-                                    <label for="checkin">Thời gian trả phòng <i class="text-danger">*</i></label>
+                                    <label for="checkin">{{$lang =='vi' ? "Thời gian trả phòng" : "Time check out"}} <i class="text-danger">*</i></label>
                                     <div class="input-group date datetimepicker2" id=>
                                         <input type='text' class="form-control" name="end_date" />
                                         <span class="input-group-addon">
@@ -214,41 +210,20 @@
                             </div>
                             <div class="row">
                                 <div class="form-group">
-                                   <label>Số người lớn</label>
-                                   <select class="form-control" name="adult" id="">
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                      <option value="7">7</option>
-                                      <option value="8">8</option>
-                                      <option value="9">9</option>
-                                      <option value="10">10</option>
-                                   </select>
+                                   <label>{{$lang =='vi' ? "Số người lớn" : "Number Adult"}}</label>
+                                   <input type="number" name="adult" min="1" max="100" class="form-control">
+                                   
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group">
-                                   <label>Số trẻ em</label>
-                                   <select class="form-control" name="child" id="">
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                      <option value="7">7</option>
-                                      <option value="8">8</option>
-                                      <option value="9">9</option>
-                                      <option value="10">10</option>
-                                   </select>
+                                   <label>{{$lang =='vi' ? "Số trẻ em" : "Number Children"}}</label>
+                                   <input type="number" name="children" min="1" max="100" class="form-control">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group">
-                                    <button type="button" class="book-btn">
+                                    <button type="submit" class="book-btn">
                                       <!-- <span class="book-btn-l"><i class="fa fa-check"></i></span> -->
                                       <span class="book-btn-r">Đặt ngay</span>
                                       <div class="clear"></div>
@@ -275,42 +250,14 @@
                          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 detail-body">
                             <!-- Facilities List -->
                             <ul class="facilities-list">
-                               <li>
-                                  <i class="flaticon-air-conditioner"></i>
-                                  <span>Điều hoà</span>
-                               </li>
-                               <li>
-                                  <i class="flaticon-room-service"></i>
-                                  <span>Dịch vụ phòng</span>
-                               </li>
-                               <li>
-                                  <i class="flaticon-wifi"></i>
-                                  <span>Wifi miễn phí</span>
-                               </li>
-                               <li>
-                                  <i class="flaticon-bed"></i>
-                                  <span>1 giường</span>
-                               </li>
-                               <li>
-                                  <i class="flaticon-students-couple-full-body-view"></i>
-                                  <span>2 khách</span>
-                               </li>
-                               <li>
-                                  <i class="flaticon-monitor"></i>
-                                  <span>TV</span>
-                               </li>
-                               <li>
-                                  <i class="flaticon-balcony"></i>
-                                  <span>Ban công</span>
-                               </li>
-                               <li>
-                                  <i class="flaticon-person-enjoying-jacuzzi-hot-water-bath"></i>
-                                  <span>1 Tắm đứng</span>
-                               </li>
-                               <li>
-                                  <i class="flaticon-person-enjoying-jacuzzi-hot-water-bath"></i>
-                                  <span>0 Bồn tắm</span>
-                               </li>
+                              @if($convenientCurrent)
+                                  @foreach($convenientCurrent as $convenient)
+                                  <li>
+                                    <!-- <i class="flaticon-air-conditioner"></i> -->                                    
+                                    <span>{{$convenient['name_'.$lang]}}</span>                                    
+                                  </li>
+                                @endforeach
+                              @endif 
                             </ul>
                          </div>
                       </div>
@@ -334,7 +281,7 @@
                     </div>
                    <!-- Inside Room End-->
                     <div class="inside-room">
-                      <h2 class="title">Phòng khác</h2>
+                      <h2 class="title">{{trans('label.another_room')}}</h2>
                         <div class="row">
                             @foreach($relatedProducts as $product)
                             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -414,11 +361,12 @@
                             </div>
                          </div>
                       </div>
-                        <form method="GET" action="/dat-hang.html" id="frm-desk-booking">
+                        <form method="post" action="{{route('book.room')}}" id="frm-desk-booking">
+                          {{csrf_field()}}
                             <div class="row">
                                 <div class="form-group">
                                     <label for="checkin">{{trans('label.hoten')}}<i class="text-danger">*</i></label>
-                                    <input type="text" name="name" class="form-control">
+                                    <input type="text" name="full_name" class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="checkin">{{trans('label.phone')}}<i class="text-danger">*</i></label>
@@ -464,35 +412,13 @@
                             <div class="row">
                                 <div class="form-group">
                                    <label>{{$lang =='vi' ? "Số người lớn" : "Number Adult"}}</label>
-                                   <select class="form-control" name="adult" id="">
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                      <option value="7">7</option>
-                                      <option value="8">8</option>
-                                      <option value="9">9</option>
-                                      <option value="10">10</option>
-                                   </select>
+                                    <input type="number" name="adult" min="1" max="100" class="form-control">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group">
                                    <label>{{$lang =='vi' ? "Số trẻ em" : "Number Children"}}</label>
-                                   <select class="form-control" name="child" id="">
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                      <option value="4">4</option>
-                                      <option value="5">5</option>
-                                      <option value="6">6</option>
-                                      <option value="7">7</option>
-                                      <option value="8">8</option>
-                                      <option value="9">9</option>
-                                      <option value="10">10</option>
-                                   </select>
+                                    <input type="number" name="children" min="1" max="100" class="form-control">
                                 </div>
                             </div>
                             <div class="row">
@@ -502,7 +428,7 @@
                             </div>
                             <div class="row">
                                 <div class="form-group">
-                                   <button type="button" class="book-btn" onclick="return handleBooking('#frm-desk-booking');">
+                                   <button type="submit" class="book-btn" onclick="return handleBooking('#frm-desk-booking');">
                                       <!-- <span class="book-btn-l"><i class="fa fa-check"></i></span> -->
                                       <span class="book-btn-r">{{ $lang =='vi' ? "Đặt ngay" : "Book Now" }}</span>
                                       <div class="clear"></div>

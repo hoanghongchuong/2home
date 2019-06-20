@@ -46,4 +46,6 @@
                 'service' => "Dịch vụ",
                 'book_now' => "Đặt ngay",
                 'room_apartment' => "Phòng/Căn hộ",
+                'roomhot' => "Phòng nổi bật",
+                'another_room' => "Phòng khác",
                 ];

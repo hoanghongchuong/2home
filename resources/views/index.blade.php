@@ -36,6 +36,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/animate.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/owl.carousel.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/bootstrap.min.css')}}" />
+    <link href="{{asset('public/css/bootstrap-datetimepicker.css')}}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/font-awesome.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/ion.rangeSlider.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/style.css')}}" />

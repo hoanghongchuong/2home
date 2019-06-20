@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 20, 2019 lúc 12:34 PM
+-- Thời gian đã tạo: Th6 20, 2019 lúc 06:17 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.2.17
 
@@ -228,6 +228,10 @@ CREATE TABLE `bills` (
   `email` varchar(250) DEFAULT NULL,
   `phone` varchar(11) DEFAULT NULL,
   `address` varchar(250) DEFAULT NULL,
+  `adult` int(11) DEFAULT NULL,
+  `children` int(11) DEFAULT NULL,
+  `start_date` varchar(250) DEFAULT NULL,
+  `end_date` varchar(250) DEFAULT NULL,
   `province` varchar(250) DEFAULT NULL,
   `district` varchar(250) DEFAULT NULL,
   `note` text,
@@ -245,8 +249,9 @@ CREATE TABLE `bills` (
 -- Đang đổ dữ liệu cho bảng `bills`
 --
 
-INSERT INTO `bills` (`id`, `full_name`, `email`, `phone`, `address`, `province`, `district`, `note`, `status`, `total`, `detail`, `language`, `created_at`, `updated_at`, `card_code`, `payment`) VALUES
-(8, 'Hoàng Hồng Chương', 'admin@team.vn', '0987654321', 'Hà Nội', NULL, NULL, 's sdf sd ư', 1, 213, '[{\"product_name\":\"Off-Grid Solar Power Kit With 960 Watts of Panels and 3500 Watt 24VDC 120VAC Inverter Power Panel\",\"product_numb\":\"1\",\"product_price\":213,\"product_img\":\"1558451765_ogk-rec.jpeg\",\"product_code\":null}]', 'en', '2019-06-05 07:24:35', '2019-06-05 07:24:35', NULL, 0);
+INSERT INTO `bills` (`id`, `full_name`, `email`, `phone`, `address`, `adult`, `children`, `start_date`, `end_date`, `province`, `district`, `note`, `status`, `total`, `detail`, `language`, `created_at`, `updated_at`, `card_code`, `payment`) VALUES
+(1, 'Hoàng Hồng Chương', 'admin@team.vn', '0987654321', NULL, 2, 1, '06/20/2019 9:52 PM', '07/05/2019 9:52 PM', NULL, NULL, NULL, 0, NULL, NULL, NULL, '2019-06-20 15:06:33', '2019-06-20 15:06:33', NULL, 0),
+(2, 'Hoàng Hồng Chương', 'admin@team.vn', '0987654321', NULL, 2, 1, '06/20/2019 10:10 PM', '07/05/2019 10:10 PM', NULL, NULL, NULL, 0, NULL, NULL, NULL, '2019-06-20 15:10:25', '2019-06-20 15:10:25', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -296,6 +301,30 @@ CREATE TABLE `contacts` (
 
 INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `address`, `content`, `status`, `created_at`, `updated_at`) VALUES
 (8, 'ssss', 'admin@team.vn', '0987654321', NULL, 'sdf sdf w', 0, '2019-06-19 15:28:58', '2019-06-19 15:28:58');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `convenients`
+--
+
+CREATE TABLE `convenients` (
+  `id` int(11) NOT NULL,
+  `name_vi` varchar(200) DEFAULT NULL,
+  `name_en` varchar(200) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `convenients`
+--
+
+INSERT INTO `convenients` (`id`, `name_vi`, `name_en`, `created_at`, `updated_at`) VALUES
+(1, 'Điều hòa', 'Air conditioning', '2019-06-20 15:36:39', '2019-06-20 15:46:11'),
+(2, 'Tủ lạnh', 'Fridge', '2019-06-20 15:37:27', '2019-06-20 15:37:27'),
+(3, 'TV', 'TV', '2019-06-20 15:37:38', '2019-06-20 15:37:38'),
+(4, 'Wifi miễn phí', 'Wifi free', '2019-06-20 15:37:56', '2019-06-20 15:37:56');
 
 -- --------------------------------------------------------
 
@@ -540,7 +569,9 @@ INSERT INTO `langs` (`id`, `name_vi`, `name_en`, `name_jp`, `name_kr`, `name_chn
 (91, 'Bộ tính', 'Load Calculator', NULL, NULL, NULL, NULL, 'caculator', NULL, 1, 0, NULL, NULL, NULL, 'langs', 44, '2019-06-11 09:14:06', '2019-06-11 09:14:06'),
 (92, 'Dịch vụ', 'Service', NULL, NULL, NULL, NULL, 'service', NULL, 1, 0, NULL, NULL, NULL, 'langs', 45, '2019-06-19 14:50:55', '2019-06-19 14:50:55'),
 (93, 'Đặt ngay', 'Book now', NULL, NULL, NULL, NULL, 'book_now', NULL, 1, 0, NULL, NULL, NULL, 'langs', 46, '2019-06-20 07:27:48', '2019-06-20 07:27:48'),
-(94, 'Phòng/Căn hộ', 'Room/Apartment', NULL, NULL, NULL, NULL, 'room_apartment', NULL, 1, 0, NULL, NULL, NULL, 'langs', 47, '2019-06-20 07:38:40', '2019-06-20 07:38:40');
+(94, 'Phòng/Căn hộ', 'Room/Apartment', NULL, NULL, NULL, NULL, 'room_apartment', NULL, 1, 0, NULL, NULL, NULL, 'langs', 47, '2019-06-20 07:38:40', '2019-06-20 07:38:40'),
+(95, 'Phòng nổi bật', 'Room Hot', NULL, NULL, NULL, NULL, 'roomhot', NULL, 1, 0, NULL, NULL, NULL, 'langs', 48, '2019-06-20 13:56:49', '2019-06-20 13:56:49'),
+(96, 'Phòng khác', 'Another Room', NULL, NULL, NULL, NULL, 'another_room', NULL, 1, 0, NULL, NULL, NULL, 'langs', 49, '2019-06-20 14:14:32', '2019-06-20 14:14:32');
 
 -- --------------------------------------------------------
 
@@ -930,6 +961,7 @@ CREATE TABLE `products` (
   `id` int(10) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT '0',
   `cate_id` int(11) UNSIGNED NOT NULL DEFAULT '0',
+  `convenient_id` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `code` text COLLATE utf8_unicode_ci,
   `stt` int(11) DEFAULT NULL,
   `name_vi` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -985,7 +1017,7 @@ CREATE TABLE `products` (
   `description_kr` text COLLATE utf8_unicode_ci,
   `description_chn` text COLLATE utf8_unicode_ci,
   `com` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -993,10 +1025,11 @@ CREATE TABLE `products` (
 -- Đang đổ dữ liệu cho bảng `products`
 --
 
-INSERT INTO `products` (`id`, `user_id`, `cate_id`, `code`, `stt`, `name_vi`, `name_en`, `name_jp`, `name_kr`, `name_chn`, `alias_vi`, `alias_en`, `alias_jp`, `alias_kr`, `alias_chn`, `photo`, `price_first_vi`, `price_first_en`, `price_next_en`, `price_next_vi`, `price_vi`, `price_en`, `address_vi`, `address_en`, `iframemap`, `sale`, `price_old`, `mota_vi`, `mota_en`, `mota_jp`, `mota_kr`, `mota_chn`, `content_vi`, `content_en`, `content_jp`, `content_kr`, `content_chn`, `model`, `ratepoint`, `noibat`, `spbc`, `status`, `title_vi`, `title_en`, `title_jp`, `title_kr`, `title_chn`, `keyword_vi`, `keyword_en`, `keyword_jp`, `keyword_kr`, `keyword_chn`, `description_vi`, `description_en`, `description_jp`, `description_kr`, `description_chn`, `com`, `created_at`, `updated_at`) VALUES
-(1, 16, 2, NULL, 1, 'Phòng 1', 'room 1', NULL, NULL, NULL, 'phong-1', '', NULL, NULL, NULL, '1561005452_p1.jpg', 100000, 5, 2, 20000, 300000, 10, 'b14, văn phòng thừa phát lại, vạn phúc, hà đông', 'Hà Nội', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.257168839705!2d105.76881231481991!3d20.982325994737955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453306edd2d7f%3A0xffbe93a8c2a95adb!2zVsSDbiBwaMOybmcgVGjhu6thIHBow6F0IGzhuqFpIHF14bqtbiBIw6AgxJDDtG5n!5e0!3m2!1svi!2s!4v1561005300666!5m2!1svi!2s\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, 0, '1 giường, 2 người', '1 giường, 2 người en', NULL, NULL, NULL, NULL, '<p>Nội dung m&ocirc; tả</p>', NULL, NULL, NULL, NULL, NULL, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'san-pham', '2019-06-20 10:15:41', '2019-06-20 10:15:41'),
-(2, 16, 2, NULL, 2, 'PHòng 2', 'Room 2', NULL, NULL, NULL, 'phong-2', '', NULL, NULL, NULL, '1561005561_p2.jpg', 80000, 4, NULL, 20000, 350000, 15, 'b14, văn phòng thừa phát lại', 'Hà Nội', NULL, 0, 0, '1 giường, 2 người', NULL, NULL, NULL, NULL, '<p>Nội dung tiếng việt</p>', NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'san-pham', '2019-06-20 04:39:21', '2019-06-20 04:39:21'),
-(3, 16, 3, NULL, 3, 'Phòng 3', NULL, NULL, NULL, NULL, 'phong-3', '', NULL, NULL, NULL, '1561015184_p3.jpg', NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'san-pham', '2019-06-20 07:19:44', '2019-06-20 07:19:44');
+INSERT INTO `products` (`id`, `user_id`, `cate_id`, `convenient_id`, `code`, `stt`, `name_vi`, `name_en`, `name_jp`, `name_kr`, `name_chn`, `alias_vi`, `alias_en`, `alias_jp`, `alias_kr`, `alias_chn`, `photo`, `price_first_vi`, `price_first_en`, `price_next_en`, `price_next_vi`, `price_vi`, `price_en`, `address_vi`, `address_en`, `iframemap`, `sale`, `price_old`, `mota_vi`, `mota_en`, `mota_jp`, `mota_kr`, `mota_chn`, `content_vi`, `content_en`, `content_jp`, `content_kr`, `content_chn`, `model`, `ratepoint`, `noibat`, `spbc`, `status`, `title_vi`, `title_en`, `title_jp`, `title_kr`, `title_chn`, `keyword_vi`, `keyword_en`, `keyword_jp`, `keyword_kr`, `keyword_chn`, `description_vi`, `description_en`, `description_jp`, `description_kr`, `description_chn`, `com`, `created_at`, `updated_at`) VALUES
+(1, 16, 2, '1,3,4', NULL, 1, 'Phòng 1', 'room 1', NULL, NULL, NULL, 'phong-1', '', NULL, NULL, NULL, '1561005452_p1.jpg', 100000, 5, 2, 20000, 300000, 10, 'b14, văn phòng thừa phát lại, vạn phúc, hà đông', 'Hà Nội', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.257168839705!2d105.76881231481991!3d20.982325994737955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313453306edd2d7f%3A0xffbe93a8c2a95adb!2zVsSDbiBwaMOybmcgVGjhu6thIHBow6F0IGzhuqFpIHF14bqtbiBIw6AgxJDDtG5n!5e0!3m2!1svi!2s!4v1561005300666!5m2!1svi!2s\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, 0, '1 giường, 2 người', '1 giường, 2 người en', NULL, NULL, NULL, NULL, '<p>Nội dung m&ocirc; tả</p>', NULL, NULL, NULL, NULL, NULL, 1, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'san-pham', '2019-06-20 13:48:27', '2019-06-20 16:12:54'),
+(2, 16, 2, NULL, NULL, 2, 'PHòng 2', 'Room 2', NULL, NULL, NULL, 'phong-2', '', NULL, NULL, NULL, '1561005561_p2.jpg', 80000, 4, NULL, 20000, 350000, 15, 'b14, văn phòng thừa phát lại', 'Hà Nội', NULL, 0, 0, '1 giường, 2 người', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'san-pham', '2019-06-20 13:48:23', '2019-06-20 13:48:23'),
+(3, 16, 3, NULL, NULL, 3, 'Phòng 3', NULL, NULL, NULL, NULL, 'phong-3', '', NULL, NULL, NULL, '1561015184_p3.jpg', NULL, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'san-pham', '2019-06-20 13:48:40', '2019-06-20 13:48:40'),
+(4, 16, 2, '3,4', NULL, 4, 'Phong demo 12', NULL, NULL, NULL, NULL, 'phong-demo-12', '', NULL, NULL, NULL, '1561045998_p2.jpg', 200000, NULL, NULL, 20000, 500000, 0, 'Hà Nội', NULL, NULL, 0, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'san-pham', '2019-06-20 15:53:18', '2019-06-20 16:05:00');
 
 -- --------------------------------------------------------
 
@@ -1221,7 +1254,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`id`, `name_vi`, `name_en`, `name_jp`, `name_kr`, `name_chn`, `title_vi`, `title_en`, `company_vi`, `company_en`, `company_jp`, `company_kr`, `company_chn`, `website`, `address_vi`, `address_en`, `address_jp`, `address_kr`, `address_chn`, `phone`, `hotline`, `hotline_hr`, `fax`, `email`, `email_test`, `email_hr`, `photo`, `logo`, `favico`, `title_index`, `mota_vi`, `mota_en`, `content_vi`, `content_en`, `facebook`, `twitter`, `skype`, `google`, `zalo`, `youtube`, `slogan_vi`, `slogan_en`, `slogan_jp`, `slogan_kr`, `slogan_chn`, `status`, `cv`, `toado`, `copyright`, `iframemap`, `codechat`, `analytics`, `keyword_vi`, `description_vi`, `created_at`, `updated_at`) VALUES
-(1, NULL, NULL, NULL, NULL, NULL, 'CÔNG TY CỔ PHẦN Welltech', NULL, 'CÔNG TY CỔ PHẦN Welltech', 'CÔNG TY CỔ PHẦN Welltech', NULL, NULL, NULL, NULL, 'Tầng 3, Toà nhà Gaden Gate, số 8 Hoàng Minh Giám, phường 9, quận Phú Nhuận, Tp Hồ Chí Minh', '3th Floor, Garden Gate Building, No.8 Hoang Minh Giam Street, Ward 9, Phu Nhuan District, Ho Chi Minh City', NULL, NULL, NULL, '(028) 35400400', '0904 855559', NULL, NULL, 'chuonghoanghong@gmail.com', NULL, NULL, '1560956209_logo.png', '1560958367_logo.png', '1560956209_logo.png', NULL, NULL, NULL, NULL, NULL, 'https://www.facebook.com/FacebookforDevelopers/', NULL, NULL, 'https://plus.google.com/?hl=vi', 'sdfs', 'https://www.youtube.com/', 'Chúng tôi luôn quan niệm rằng việc xây dựng chữ TÍN với Quý khách hàng và đối tác phải đặt lên hàng đầu, là giá trị to lớn nhất để phát triển doanh nghiệp bền vững.', 'Slogan tieengs anh', NULL, NULL, NULL, 1, '1543305485_WEB IVY - ĐIỂM CẦN SỬA-converted.docx', NULL, '© Copyright 2019. WELLTECH - All rights reseverd', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0204299793886!2d106.67180031526053!3d10.80974696153258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175292057c1dea7%3A0xc1067795d779feb2!2sChung+c%C6%B0+Garden+Gate!5e0!3m2!1svi!2s!4v1560491672446!5m2!1svi!2s\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', NULL, NULL, NULL, NULL, '2019-06-19 15:32:47', '2019-06-19 15:32:47');
+(1, NULL, NULL, NULL, NULL, NULL, '2home', NULL, '2home', '2home', NULL, NULL, NULL, NULL, 'Tầng 3, Toà nhà Gaden Gate, số 8 Hoàng Minh Giám, phường 9, quận Phú Nhuận, Tp Hồ Chí Minh', '3th Floor, Garden Gate Building, No.8 Hoang Minh Giam Street, Ward 9, Phu Nhuan District, Ho Chi Minh City', NULL, NULL, NULL, '0963125478', '0987456321', NULL, NULL, 'chuonghoanghong@gmail.com', NULL, NULL, '1560956209_logo.png', '1560958367_logo.png', '1560956209_logo.png', NULL, NULL, NULL, NULL, NULL, 'https://www.facebook.com/FacebookforDevelopers/', NULL, NULL, 'https://plus.google.com/?hl=vi', 'sdfs', 'https://www.youtube.com/', 'Chúng tôi luôn quan niệm rằng việc xây dựng chữ TÍN với Quý khách hàng và đối tác phải đặt lên hàng đầu, là giá trị to lớn nhất để phát triển doanh nghiệp bền vững.', 'Slogan tieengs anh', NULL, NULL, NULL, 1, '1543305485_WEB IVY - ĐIỂM CẦN SỬA-converted.docx', NULL, NULL, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0204299793886!2d106.67180031526053!3d10.80974696153258!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175292057c1dea7%3A0xc1067795d779feb2!2sChung+c%C6%B0+Garden+Gate!5e0!3m2!1svi!2s!4v1560491672446!5m2!1svi!2s\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', NULL, NULL, NULL, NULL, '2019-06-20 13:34:59', '2019-06-20 13:34:59');
 
 -- --------------------------------------------------------
 
@@ -1265,14 +1298,14 @@ CREATE TABLE `slider` (
 --
 
 INSERT INTO `slider` (`id`, `user_id`, `name_vi`, `name_en`, `name_jp`, `name_kr`, `name_chn`, `link_vi`, `link_en`, `link_jp`, `link_kr`, `link_chn`, `photo`, `photo_en`, `icon`, `mota_vi`, `content_vi`, `content_en`, `content_jp`, `content_kr`, `content_chn`, `status`, `status_en`, `noibat`, `com`, `stt`, `created_at`, `updated_at`) VALUES
-(41, 16, 'Slider 1', 'Slider 1', 'ten tieng nhat', 'ten tieng han', 'ten tieng trung', NULL, NULL, NULL, '', NULL, '1558362826_banner.jpg', '1540199647_slider1.jpg', '', NULL, '<p>Nội dung m&ocirc; tả</p>', '<p>Nội dung m&ocirc; tả tiếng anh</p>', '<p>Nội dung m&ocirc; tả tiếng nhật</p>', '<p>Nội dung m&ocirc; tả tiếng h&agrave;n</p>', '<p>Nội dung m&ocirc; tả tiếng&nbsp;trung</p>', 1, 0, 0, 'gioi-thieu', 0, '2019-05-20 14:38:20', '2019-05-20 14:38:20'),
+(41, 16, 'Slider 1', 'Slider 1', 'ten tieng nhat', 'ten tieng han', 'ten tieng trung', NULL, NULL, NULL, '', NULL, '1561037580_slider2.png', '1540199647_slider1.jpg', '', NULL, '<p>Nội dung m&ocirc; tả</p>', '<p>Nội dung m&ocirc; tả tiếng anh</p>', '<p>Nội dung m&ocirc; tả tiếng nhật</p>', '<p>Nội dung m&ocirc; tả tiếng h&agrave;n</p>', '<p>Nội dung m&ocirc; tả tiếng&nbsp;trung</p>', 1, 0, 0, 'gioi-thieu', 0, '2019-06-20 13:33:00', '2019-06-20 13:33:00'),
 (47, 5, 'Chứng chỉ 3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '1509931153_certify-3.jpg', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 0, 'thu-vien-anh', 3, '2017-11-05 18:19:13', '2017-11-05 18:19:13'),
 (46, 5, 'Chứng chỉ 2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '1509931145_certify-2.jpg', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 0, 'thu-vien-anh', 2, '2017-11-05 18:19:05', '2017-11-05 18:19:05'),
 (45, 5, 'chứng chỉ 1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '1509931135_certify-1.jpg', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, 0, 'thu-vien-anh', 1, '2017-11-08 03:13:43', '2017-11-07 20:13:43'),
 (29, 5, 'MIỄN PHÍ VẬN CHUYỂN', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '1504143783_oto.png', NULL, '', 'CHO ĐƠN HÀNG CÓ TỔNG TRỊ GIÁ 30 TRIỆU', NULL, NULL, NULL, NULL, NULL, 1, 1, 0, 'chinh-sach', 1, '2017-08-31 01:44:03', '2017-08-30 18:44:03'),
 (30, 5, 'ĐỔI TRẢ TRONG VÒNG 07 NGÀY', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '1504143807_phone.png', NULL, '', 'CHO ĐƠN HÀNG CÓ TỔNG TRỊ GIÁ 30 TRIỆU', NULL, NULL, NULL, NULL, NULL, 1, 1, 0, 'chinh-sach', 2, '2017-08-30 18:43:27', '2017-08-30 18:43:27'),
 (31, 5, 'HỖ TRỢ ONLINE 24/7', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '1504143833_watch.png', NULL, '', 'CHO ĐƠN HÀNG CÓ TỔNG TRỊ GIÁ 30 TRIỆU', NULL, NULL, NULL, NULL, NULL, 1, 1, 0, 'chinh-sach', 3, '2017-08-30 18:43:53', '2017-08-30 18:43:53'),
-(42, 16, 'Slider 2', 'Slider 2', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '1558362896_banner.jpg', NULL, '', NULL, '<p>Nội dung m&ocirc; tả tiếng việt</p>', '<p>Nội dung m&ocirc; tả tiếng&nbsp;anh</p>', '<p>Nội dung m&ocirc; tả tiếng nhật</p>', '<p>Nội dung m&ocirc; tả tiếng&nbsp;h&agrave;n</p>', '<p>Nội dung m&ocirc; tả tiếng&nbsp;trung</p>', 1, 0, 0, 'gioi-thieu', 0, '2019-05-20 14:38:11', '2019-05-20 14:38:11');
+(42, 16, 'Slider 2', 'Slider 2', NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '1561037590_slider1.png', NULL, '', NULL, '<p>Nội dung m&ocirc; tả tiếng việt</p>', '<p>Nội dung m&ocirc; tả tiếng&nbsp;anh</p>', '<p>Nội dung m&ocirc; tả tiếng nhật</p>', '<p>Nội dung m&ocirc; tả tiếng&nbsp;h&agrave;n</p>', '<p>Nội dung m&ocirc; tả tiếng&nbsp;trung</p>', 1, 0, 0, 'gioi-thieu', 0, '2019-06-20 13:33:10', '2019-06-20 13:33:10');
 
 -- --------------------------------------------------------
 
@@ -1425,6 +1458,12 @@ ALTER TABLE `chinhanh`
 -- Chỉ mục cho bảng `contacts`
 --
 ALTER TABLE `contacts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Chỉ mục cho bảng `convenients`
+--
+ALTER TABLE `convenients`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -1620,7 +1659,7 @@ ALTER TABLE `banner_position`
 -- AUTO_INCREMENT cho bảng `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `chinhanh`
@@ -1633,6 +1672,12 @@ ALTER TABLE `chinhanh`
 --
 ALTER TABLE `contacts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT cho bảng `convenients`
+--
+ALTER TABLE `convenients`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `cv`
@@ -1668,7 +1713,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT cho bảng `langs`
 --
 ALTER TABLE `langs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT cho bảng `lienket`
@@ -1716,7 +1761,7 @@ ALTER TABLE `partner`
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `product_categories`

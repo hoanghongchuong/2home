@@ -96,10 +96,10 @@
 								      	<label for="ten">Email HR</label>
 								      	<input type="text" name="email_hr" value="{!! old('email_hr', isset($data) ? $data->email_hr : null) !!}"  class="form-control" />
 									</div> -->
-									<div class="form-group">
+									<!-- <div class="form-group">
 								      	<label for="ten">Điện thoại</label>
 								      	<input type="text" name="txtPhone" value="{!! old('txtPhone', isset($data) ? $data->phone : null) !!}"  class="form-control" />
-									</div>
+									</div> -->
 									<div class="form-group">
 								      	<label for="ten">Hotline</label>
 								      	<input type="text" name="txtHotline" value="{!! old('txtHotline', isset($data) ? $data->hotline : null) !!}"  class="form-control" />
@@ -123,14 +123,14 @@
 									</div>
 								</div>
 								<div class="col-md-6 col-xs-12">
-									<div class="form-group">
+									<!-- <div class="form-group">
 								      	<label for="ten">Slogan(Tiếng việt)</label>
 								      	<textarea name="slogan_vi" class="form-control" id="">{{$data->slogan_vi}}</textarea>
 									</div>
 									<div class="form-group">
 								      	<label for="ten">Slogan(tiếng anh)</label>
 								      	<textarea name="slogan_en" class="form-control" id="">{{$data->slogan_en}}</textarea>
-									</div>
+									</div> -->
 									<!-- <div class="form-group">
 								      	<label for="ten">Slogan(tiếng nhập)</label>
 								      	<textarea name="slogan_jp" class="form-control" id="">{{$data->slogan_jp}}</textarea>
@@ -147,10 +147,10 @@
 								      	<label for="ten">Facebook</label>
 								      	<input type="text" name="txtFacebook" value="{!! old('txtFacebook', isset($data) ? $data->facebook : null) !!}"  class="form-control" />
 									</div>
-									<div class="form-group">
+									<!-- <div class="form-group">
 								      	<label for="ten">Zalo</label>
 								      	<input type="text" name="zalo" value="{!! old('zalo', isset($data) ? $data->zalo : null) !!}"  class="form-control" />
-									</div>
+									</div> -->
 									<!-- <div class="form-group">
 								      	<label for="ten">Twitter</label>
 								      	<input type="text" name="txtTwitter" value="{!! old('txtTwitter', isset($data) ? $data->twitter : null) !!}"  class="form-control" />

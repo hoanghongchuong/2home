@@ -71,6 +71,12 @@
 								      	@endif
 									</div>
 									<div class="form-group">
+										<label>Tiện ích</label> <br>
+										@foreach($convenients as $item)
+										<input type="checkbox" name="convenient[]" value="{{$item->id}}" @if(in_array($item->id, $convenientCurrent)) checked="checked" @endif> {{$item->name_vi}} &nbsp
+										@endforeach
+									</div>
+									<div class="form-group">
 								      	<label for="ten">Giá 2 giờ đầu (vnd)</label>
 								      	<input type="text" name="price_first_vi"  value="{{$data->price_first_vi}}"  class="form-control" />
 									</div>
