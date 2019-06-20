@@ -7,6 +7,10 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
+	<?php 
+		$lang = Session::get('locale');
+		$product = \App\Products::where('id',$product_id)->first();
+	?>
 	<div class="" style="width: 100%; max-width: 650px; margin: 0 auto; border: 1px solid #348dcc; ">
 		<div class="header" style="text-align: center; background: #348dcc; padding: 1px; color: #fff;"><h3 style="text-transform: uppercase; margin-top: 5px; margin-bottom: 2px">Hệ thống thông báo</h3></div>	
 		<div class="content" style="padding: 10px;">
@@ -19,6 +23,10 @@
 				<tbody>
 					<tr>
 						<td colspan="2" align="center" style="font-family:Arial,Helvetica,sans-serif;background-color:#f2f2f2;padding:8px 20px;border-top:1px solid #dcdcdc"><span style="font-size:13px;color:#252525;font-weight:bold">THÔNG TIN CHI TIẾT</span></td>
+					</tr>
+					<tr>
+						<td width="39%" align="right" style="padding:8px 10px 8px 20px;font-family:Arial,Helvetica,sans-serif;color:#666666;font-size:12px;border-bottom:1px solid #dcdcdc"><span>Phòng:</span></td>
+						<td align="left" style="padding:8px 20px 8px 10px;font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#2525253;border-bottom:1px solid #dcdcdc"><strong>{{$product['name_vi']}}</strong></td>
 					</tr>
 					<tr>
 						<td width="39%" align="right" style="padding:8px 10px 8px 20px;font-family:Arial,Helvetica,sans-serif;color:#666666;font-size:12px;border-bottom:1px solid #dcdcdc"><span>Họ và tên:</span></td>

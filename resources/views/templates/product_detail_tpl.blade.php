@@ -20,6 +20,16 @@
 <div class="rooms-details-body">
    <div class="container">
         <div class="row">
+          @if (session('message'))
+            <div class="box-header">
+              <div class="alert-success">
+                <h2 class="box-title">{{ session('message') }}</h2>
+              </div>
+              
+            </div>
+            @endif
+        </div>
+        <div class="row">
             <div class="col-lg-8 col-md-8 col-xs-12">
                 <div class="hotel-details">
                    <!-- Option Bar Start-->
@@ -169,7 +179,8 @@
                       </div>
                       <p>{!! str_limit($data['content_'.$lang], 200) !!}</p>
                       <form method="post" action="{{route('book.room')}}" id="frm-mobile-booking">
-                        {{csrf_field()}}                      
+                        {{csrf_field()}}
+                        <input type="hidden" name="product_id" value="{{$data['id']}}">              
                             <div class="row">
                                 <div class="form-group">
                                     <label for="checkin">{{trans('label.hoten')}}<i class="text-danger">*</i></label>
@@ -363,6 +374,7 @@
                       </div>
                         <form method="post" action="{{route('book.room')}}" id="frm-desk-booking">
                           {{csrf_field()}}
+                          <input type="hidden" name="product_id" value="{{$data['id']}}"> 
                             <div class="row">
                                 <div class="form-group">
                                     <label for="checkin">{{trans('label.hoten')}}<i class="text-danger">*</i></label>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 20, 2019 lúc 06:17 PM
+-- Thời gian đã tạo: Th6 20, 2019 lúc 07:32 PM
 -- Phiên bản máy phục vụ: 10.1.38-MariaDB
 -- Phiên bản PHP: 7.2.17
 
@@ -224,6 +224,7 @@ INSERT INTO `banner_position` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 CREATE TABLE `bills` (
   `id` int(11) NOT NULL,
+  `product_id` int(11) DEFAULT NULL,
   `full_name` varchar(250) DEFAULT NULL,
   `email` varchar(250) DEFAULT NULL,
   `phone` varchar(11) DEFAULT NULL,
@@ -249,9 +250,12 @@ CREATE TABLE `bills` (
 -- Đang đổ dữ liệu cho bảng `bills`
 --
 
-INSERT INTO `bills` (`id`, `full_name`, `email`, `phone`, `address`, `adult`, `children`, `start_date`, `end_date`, `province`, `district`, `note`, `status`, `total`, `detail`, `language`, `created_at`, `updated_at`, `card_code`, `payment`) VALUES
-(1, 'Hoàng Hồng Chương', 'admin@team.vn', '0987654321', NULL, 2, 1, '06/20/2019 9:52 PM', '07/05/2019 9:52 PM', NULL, NULL, NULL, 0, NULL, NULL, NULL, '2019-06-20 15:06:33', '2019-06-20 15:06:33', NULL, 0),
-(2, 'Hoàng Hồng Chương', 'admin@team.vn', '0987654321', NULL, 2, 1, '06/20/2019 10:10 PM', '07/05/2019 10:10 PM', NULL, NULL, NULL, 0, NULL, NULL, NULL, '2019-06-20 15:10:25', '2019-06-20 15:10:25', NULL, 0);
+INSERT INTO `bills` (`id`, `product_id`, `full_name`, `email`, `phone`, `address`, `adult`, `children`, `start_date`, `end_date`, `province`, `district`, `note`, `status`, `total`, `detail`, `language`, `created_at`, `updated_at`, `card_code`, `payment`) VALUES
+(1, NULL, 'Hoàng Hồng Chương', 'admin@team.vn', '0987654321', NULL, 2, 1, '06/20/2019 9:52 PM', '07/05/2019 9:52 PM', NULL, NULL, NULL, 0, NULL, NULL, NULL, '2019-06-20 15:06:33', '2019-06-20 15:06:33', NULL, 0),
+(2, NULL, 'Hoàng Hồng Chương', 'admin@team.vn', '0987654321', NULL, 2, 1, '06/20/2019 10:10 PM', '07/05/2019 10:10 PM', NULL, NULL, NULL, 0, NULL, NULL, NULL, '2019-06-20 15:10:25', '2019-06-20 15:10:25', NULL, 0),
+(3, NULL, 'Hoàng Hồng Chương', 'admin@team.vn', '0987654321', NULL, 2, 2, '06/21/2019 12:14 AM', '07/05/2019 12:14 AM', NULL, NULL, NULL, 0, NULL, NULL, NULL, '2019-06-20 17:15:14', '2019-06-20 17:15:14', NULL, 0),
+(4, NULL, 'llllhjhh', 'admin@team.vn', '0987654321', NULL, 3, 2, '06/22/2019 12:19 AM', '06/26/2019 12:20 AM', NULL, NULL, NULL, 0, NULL, NULL, NULL, '2019-06-20 17:20:38', '2019-06-20 17:20:38', NULL, 0),
+(5, 1, 'ssss', 'admin@team.vn', '0987654321', NULL, 4, 2, '06/21/2019 12:27 AM', '07/05/2019 12:27 AM', NULL, NULL, NULL, 0, NULL, NULL, NULL, '2019-06-20 17:27:27', '2019-06-20 17:27:27', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1659,7 +1663,7 @@ ALTER TABLE `banner_position`
 -- AUTO_INCREMENT cho bảng `bills`
 --
 ALTER TABLE `bills`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `chinhanh`

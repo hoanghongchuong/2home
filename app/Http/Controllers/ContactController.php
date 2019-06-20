@@ -82,6 +82,8 @@ class ContactController extends Controller {
     public function bookRoom(Requests $request)
     {
         $setting = DB::table('setting')->select()->where('id',1)->get()->first();
+        $lang = Session::get('locale');
+        
         $this->validate($request, [
             "full_name" => "required",
             "phone" => "required|max:100|min:1",
@@ -105,7 +107,9 @@ class ContactController extends Controller {
             // "address.required" =>  __('message.address'),
             // "content.required" =>  __('message.content'),
         ]);
-        $data = ($request->only('full_name','phone','email','start_date','end_date','children','adult'));        
+        $data = ($request->only('full_name','phone','email','start_date','end_date','children','adult','product_id'));
+        // dd($data);
+        // $product = \App\Products::where('id',$product_id)->first();
         Mail::send('templates.sendmail', $data, function ($msg) {
             $setting = Cache::get('setting');
             $msg->from(Request::input('email'),  'Hệ thống website');
