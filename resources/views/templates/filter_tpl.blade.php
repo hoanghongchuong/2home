@@ -25,7 +25,7 @@ $setting = \App\Setting::where('id', 1)->first()->toArray();
             <div class="sidebar ">
                <aside class="sidebar-widget">
                   <!-- Review Start -->
-                    <form action="" method="GET" id="lst_form_filter">
+                    <form action="{{route('filter.room')}}" method="GET" id="lst_form_filter">
                         <div class="review">
                             <!-- Option Bar -->
                             <div class="option-bar clearfix">
@@ -53,7 +53,6 @@ $setting = \App\Setting::where('id', 1)->first()->toArray();
                             <!-- title-->
                             <h2 class="title">{{ $lang =='vi' ? "Khu vực" : "Area" }}</h2>
                             <select class="form-control" name="area">
-                              <option value="">chọn khu vực</option>
                                 @foreach($cate_pro as $area)
                                 <option value="{{$area->id}}">{{$area['name_'.$lang]}}</option>
                                 @endforeach
@@ -222,9 +221,7 @@ $setting = \App\Setting::where('id', 1)->first()->toArray();
             </div>            
             @endforeach
             <!-- Page navigation Start-->
-            <div class="paginations">
-                    {!! $result->links() !!}
-            </div>
+            
             <!-- Page navigation End-->
             <!-- Recent News Start-->
             <div class="Recent-news sidebar-widget show-sp">

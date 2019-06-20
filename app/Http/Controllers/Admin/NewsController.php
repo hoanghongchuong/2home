@@ -375,7 +375,7 @@ class NewsController extends Controller
     }
 
      public function getDelImg(Request $request, $id){         // use Request;
-
+        
         if ($request->ajax()) {      
             $idImg = (int)$request->get('idImg');
             // dd($idImg);

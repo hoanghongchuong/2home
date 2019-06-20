@@ -3,40 +3,45 @@
 <?php
    
 ?>
-<div class="crumb">
-    <div class="container">
-        <div class="row">
-            <ol class="breadcrumb breadcrumbx">
-                <li>
-                    <a href="{{url('')}}">{{trans('label.home')}}</a>
-                </li>
-                
-                <li class="{{url('tin-tuc')}}">{{trans('label.news')}}</li>
-                <li class="active">{{$data['name_'.$lang]}}</li>
-            </ol>
-        </div>
-    </div>
-</div>
-<div class="content-home-cate" style="margin-top: 30px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-md-9">
-                <h1 class="name_detail_news">{{$data['name_'.$lang]}}</h1>
-                <div class="detail_news_box">
-                    {!! $data['content_'.$lang] !!}
+<!-- Content Start -->
+<!-- Blog Body Start -->
+<div class="blog-body">
+   <div class="container">
+      <div class="row">
+         <div class="col-lg-12 col-md-12 col-xs-12">
+            <!-- Blog Box Start -->
+            <div class="thumbnail blog-box">
+               <img src="{{asset('upload/news/'.$data['photo'])}}">
+               <!-- detail -->
+                <div class="caption detail">
+                    <h1 class="title">
+                        <a href="{{URL::current()}}">{{$data['name_'.$lang]}}</a>
+                    </h1>
+                    <div class="content">
+                        {!! $data['content_'.$lang] !!}
+                    </div>
+                    <div class="clearfix">
+                         <div class="blog-share">
+                            <div class="addthis_inline_share_toolbox"></div>
+                         </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-xs-12 col-md-3">
-                <h3 class="news_hot">Tin nổi bật</h3>
-                <div class="list-hot-news">
-                    @foreach($hots as $hot)
-                    <p><a href="{{url('tin-tuc/'.$hot['alias_vi'].'.html')}}" title="{{$hot['name_'.$lang]}}">{{$hot['name_'.$lang]}}</a></p>
-                    @endforeach
-                </div>
+            <!-- Comments Thread Start -->
+            <div class="comments-thread clearfix">
+               <h2 class="sub-title mrg-btm">Bình luận</h2>
+               <div class="comment">
+                  <!-- CORRECT -->
+                  <div class="fb-comments" data-href="{{URL::current()}}" data-width="100%" data-numposts="5"></div>
+               </div>
             </div>
-        </div>
-    </div>
+            <!-- Comments Thread End -->
+         </div>
+      </div>
+   </div>
 </div>
+<!-- Blog Body End -->
+
 
 
 @endsection

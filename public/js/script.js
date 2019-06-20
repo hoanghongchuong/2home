@@ -64,6 +64,32 @@ $(document).ready(function($){
 	        $('.menu').removeClass('fixed-menu');        
 	    }
 	});
+	$("#range").ionRangeSlider({
+	    hide_min_max: true,
+	    keyboard: true,
+	    min: 10000,
+	    max: 5000000,
+	    from: 1000,
+	    to: 40000000,
+	    type: 'double',
+	    step: 100,
+	    prefix: "",
+	    postfix: " VNĐ",
+	    grid: true
+	});
+	$("#range_en").ionRangeSlider({
+	    hide_min_max: true,
+	    keyboard: true,
+	    min: 1,
+	    max: 2000,
+	    from: 1,
+	    to: 2000,
+	    type: 'double',
+	    step: 10,
+	    prefix: "",
+	    postfix: " $",
+	    grid: true
+	});
 });
 
 

@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/owl.carousel.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/font-awesome.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('public/css/ion.rangeSlider.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/style.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/cus.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('public/css/phone.css')}}" />
@@ -75,6 +76,7 @@
     <script src="{{asset('public/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('public/js/owl.carousel.min.js')}}"></script>
     <script src="{{asset('public/js/slick.min.js')}}"></script>
+    <script src="{{asset('public/js/ion.rangeSlider.js')}}"></script>
     <script src="{{asset('public/js/script.js')}}"></script>
     <script src="{{asset('public/js/cus.js')}}"></script>
 <!-- END: SCRIPT -->

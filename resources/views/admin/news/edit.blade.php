@@ -21,13 +21,16 @@
     	@include('admin.messages_error')
         <div class="box-body">
 
-        	<form name="frmAdd" method="post" action="backend/news/edit?id={{$id}}&type={{ @$_GET['type'] }}" enctype="multipart/form-data">
+        	<form name="frmEditNews" method="post" action="backend/news/edit?id={{$id}}&type={{ @$_GET['type'] }}" enctype="multipart/form-data">
         		<input type="hidden" name="_token" value="{!! csrf_token() !!}" />
 				<input type="hidden" name="txtCom" value="{{ @$_GET['type'] }}"/>
       			<div class="nav-tabs-custom">
 	                <ul class="nav nav-tabs">
 	                  	<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Tiếng việt</a></li>
 	                  	<li><a href="#tab_2" data-toggle="tab" aria-expanded="true">Tiếng anh</a></li>
+	                  	@if($_GET['type']=='dich-vu')
+	                  	<li><a href="#tab_5" data-toggle="tab" aria-expanded="true">Album ảnh</a></li>
+	                  	@endif
 	                  	<!-- <li><a href="#tab_3" data-toggle="tab" aria-expanded="true">Tiếng nhật</a></li>
 	                  	<li><a href="#tab_4" data-toggle="tab" aria-expanded="true">Tiếng hàn</a></li>
 	                  	<li><a href="#tab_5" data-toggle="tab" aria-expanded="true">Tiếng trung</a></li> -->
@@ -58,7 +61,7 @@
 									</div>
 									
 									<div class="clearfix"></div>
-									@if($_GET['type']!='tin-tuc')									
+									@if($_GET['type']!='tin-tuc' && $_GET['type']!='dich-vu')
 									<div class="form-group">
 								      	<label for="ten">Danh mục bài viết</label>
 								      	<select name="txtNewsCate" class="form-control">
@@ -195,6 +198,18 @@
 							
 	                    	<div class="clearfix"></div>
 	                	</div><!-- /.tab-pane -->
+	                	<div class="tab-pane" id="tab_5">
+	                		<div class="form-group">
+	                			@foreach($product_img as $key => $item)
+		                        <div class="form-group" id="{!! $key !!}">
+		                            <img src="{!! asset('upload/service/'.$item['photo']) !!}" style="max-width: 150px; margin: 20px;" idImg="{!! $item['id'] !!}" id="{!! $key !!}">
+		                            <a href="javascript:" type="button" id="del_imgx" class="btn btn-danger btn-circle icon_del"><i class="fa fa-times"></i></a>
+		                        </div>
+		                      @endforeach
+	                  			<label class="control-label">Chọn ảnh</label>
+                      			<input id="input-2" name="detailImg[]" type="file" class="file" multiple data-show-upload="false" data-show-caption="true" data-allowed-file-extensions='["jpeg", "jpg", "png", "gif"]'>
+	                  		</div>
+	                  	</div>
 	                	<!-- <div class="tab-pane" id="tab_3">
 	                  		<div class="row">
 		                  		<div class="col-md-6 col-xs-12">

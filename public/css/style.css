@@ -1481,7 +1481,7 @@ footer .footer-item .footer-item-content .gallery-item img {
     display: block;
     font-size: 20px;
     float: right;
-    color: #764B28;
+    color: #3390FF;
 }
 
 .rooms-list-box .detail-body p {
@@ -1893,7 +1893,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .section-heading .media .media-left i {
-    background: #764B28;
+    background: #3390FF;
     color: #fff;
     width: 47px;
     height: 47px;
@@ -1905,13 +1905,13 @@ input[type=checkbox]:checked + label:before {
 .section-heading .media .media-body h4 {
     margin: 0px;
     font-weight: 600;
-    color: #764B28;
+    color: #3390FF;
 }
 
 .section-heading .media .media-body .border {
     height: 2px;
     width: 60px;
-    background: #764B28;
+    background: #3390FF;
     margin: 5px 0px 3px;
 }
 

@@ -44,4 +44,6 @@
                 'why' => "",
                 'caculator' => "",
                 'service' => "",
+                'book_now' => "",
+                'room_apartment' => "",
                 ];

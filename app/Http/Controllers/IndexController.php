@@ -175,19 +175,7 @@ class IndexController extends Controller {
 		$keyword = $data["keyword_".$lang] ? $data["keyword_".$lang] : $data["name_".$lang];
 		return view('templates.news_detail_tpl', compact('lang','data','title','description','keyword','cateNews','hots'));
 	}
-	public function getProduct(Request $req)
-	{
-		$cate_pro = ProductCate::where('status',1)->where('parent_id',0)->orderby('stt','asc')->get();
-		$partners = DB::table('partner')->get();
-		$products = DB::table('products')->where('status',1)->where('com','san-pham')->paginate(18);
-		$com='san-pham';		
-		$title = "Sản phẩm";
-		$keyword = "Sản phẩm";
-		$description = "Sản phẩm";
-		// $img_share = asset('upload/hinhanh/'.$banner_danhmuc->photo);
-		
-		return view('templates.product_tpl', compact('title','keyword','description','products', 'com','cate_pro','partners'));
-	}
+
 
 
 	public function getProductList($alias, Request $req)
@@ -273,9 +261,13 @@ class IndexController extends Controller {
 		$lang = Session::get('locale');
 		$data = Products::where('alias_vi',$alias)->first()->toArray();
 		$albums = Images::where('product_id', $data['id'])->get()->toArray();
-		$relatedProducts = Products::where('status',1)->where('cate_id',$data["cate_id"])->get()->toArray();
+		$services = News::where('com','dich-vu')->where('status',1)->get();
+		$relatedProducts = Products::where('status',1)->where('cate_id',$data["cate_id"])->take(6)->get()->toArray();
 		$com = 'san-pham';
-		return view('templates.product_detail_tpl', compact('lang','data','title','description','keyword','com','albums','relatedProducts'));
+		$title = $data["title_".$lang] ? $data["title_".$lang] : $data["name_".$lang];
+		$description = $data["description_".$lang] ? $data["description_".$lang] : $data["name_".$lang];
+		$keyword = $data["keyword_".$lang] ? $data["keyword_".$lang] : $data["name_".$lang];
+		return view('templates.product_detail_tpl', compact('lang','data','title','description','keyword','com','albums','relatedProducts','services'));
 	}
 	public function getContact() {
 		$lang = Session::get('locale');
@@ -417,11 +409,58 @@ class IndexController extends Controller {
         Cart::remove($id);
         return redirect('gio-hang');
     }
-
-
-    public function getCaculator()
+    public function getService()
     {
-    	
-    	return view('templates.caculator');
+    	$lang = Session::get('locale');    	
+    	$com = 'dich-vu';
+    	$slogans = Slogan::get();
+    	$data = News::where('status',1)->where('com','dich-vu')->orderBy('id','desc')->get();
+    	$title = $lang =='vi' ? "Dịch vụ" : "Service";
+    	return view('templates.service', compact('com','data','title','lang','slogans'));
     }
+    public function getServiceDetail($alias)
+    {
+    	$lang = Session::get('locale');
+    	$data = News::where('alias_vi', $alias)->where('status',1)->where('com','dich-vu')->first();
+    	$albums = $data->albums;
+    	
+    	$com = 'dich-vu';
+    	$title = $data["title_".$lang] ? $data["title_".$lang] : $data["name_".$lang];
+		$description = $data["description_".$lang] ? $data["description_".$lang] : $data["name_".$lang];
+		$keyword = $data["keyword_".$lang] ? $data["keyword_".$lang] : $data["name_".$lang];
+    	return view("templates.detail_service", compact('data', 'com','title','description','keyword','albums','lang'));
+    }
+
+    public function getProduct(Request $req)
+	{
+		$lang = Session::get('locale');
+		$cate_pro = ProductCate::select('id','name_vi','name_en')->where('status',1)->where('parent_id',0)->orderby('stt','asc')->get();
+		$category_id = $req->area;
+		$price_vi =  explode(';', $req->range_vi);
+    	$price_en =  explode(';', $req->range_en);
+    	$from_vi = (int)(@$price_vi[0]);
+    	$to_vi = (int)(@$price_vi[1]);
+    	$from_en = (int)(@$price_en[0]);    	
+    	$to_en = (int)(@$price_en[1]);
+    	$result = Products::where('status',1)->where('com','san-pham');
+    	if($category_id){    		
+    		$result = Products::where('cate_id',$category_id);
+    	}
+    	if($req->range_vi !=''){
+    		$result = $result->whereBetween('price_vi', [@$from_vi, @$to_vi]);    		
+    	}
+    	if($req->range_en !=''){
+    		$result = $result->whereBetween('price_en', [@$from_en, @$to_en]);
+    	}
+    	$result = $result->orderBy('id', 'desc')->paginate(10);
+		
+		$com='phong';
+		$title = $lang =='vi' ? "Phòng \ căn hộ" : "Room \ Apartment";		
+		$description = $lang =='vi' ? "Phòng \ căn hộ" : "Room \ Apartment";		
+		$keyword = $lang =='vi' ? "Phòng \ căn hộ" : "Room \ Apartment";		
+		
+		// $img_share = asset('upload/hinhanh/'.$banner_danhmuc->photo);
+		
+		return view('templates.product_tpl', compact('title','keyword','description','result', 'com','cate_pro','partners','products','lang'));
+	}
 }

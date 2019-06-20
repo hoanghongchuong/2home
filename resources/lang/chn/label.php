@@ -44,4 +44,6 @@
                 'why' => "Why choose us",
                 'caculator' => "Load Calculator",
                 'service' => "Service",
+                'book_now' => "Book now",
+                'room_apartment' => "Room/Apartment",
                 ];

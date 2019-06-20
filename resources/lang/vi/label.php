@@ -44,4 +44,6 @@
                 'why' => "Tại sao chọn chúng tôi",
                 'caculator' => "Bộ tính",
                 'service' => "Dịch vụ",
+                'book_now' => "Đặt ngay",
+                'room_apartment' => "Phòng/Căn hộ",
                 ];

@@ -10,4 +10,8 @@ class News extends Model {
 
 	public $timestamps = true;
 
+	public function albums()
+	{
+		return $this->hasMany('\App\Images','service_id');
+	}
 }

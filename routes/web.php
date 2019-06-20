@@ -27,7 +27,6 @@ Route::group(['middleware' =>'admin', 'prefix' => 'backend'], function(){
 		Route::post('update',['as'=>'admin.setting.update','uses'=>'Admin\SettingController@update']);
 	});
 	
-	
 	Route::post('contact/access',['as'=>'admin.contact.access','uses'=>'Admin\ContactController@xuly']);
 	Route::post('recruitment/access',['as'=>'admin.recruitment.access','uses'=>'Admin\RecruitmentController@accessRe']);
 	Route::group([			
@@ -336,9 +335,9 @@ Route::group(['middleware' => 'localization', 'prefix' => Session::get('locale')
 
 	Route::get('/', ['as'=>'index', 'uses'=>'IndexController@index']);
 	Route::get('gioi-thieu',['as'=>'getAbout', 'uses'=>'IndexController@getAbout']);
-	Route::get('san-pham',['as'=>'getProduct', 'uses'=>'IndexController@getProduct']);
-	Route::get('san-pham/{alias}.html','IndexController@getProductDetail')->name('detailProduct');
-	Route::get('san-pham/{alias}',['as'=>'getProductList', 'uses'=>'IndexController@getProductList']);
+	Route::get('phong',['as'=>'getProduct', 'uses'=>'IndexController@getProduct']);
+	Route::get('phong/{alias}.html','IndexController@getProductDetail')->name('detailProduct');
+	Route::get('phong/{alias}',['as'=>'getProductList', 'uses'=>'IndexController@getProductList']);
 	
 Route::get('caculator', 'IndexController@getCaculator');
 	
@@ -348,10 +347,14 @@ Route::get('caculator', 'IndexController@getCaculator');
 	Route::get('tin-tuc/{alias}.html',['as'=>'getNewsDetail', 'uses'=>'IndexController@getNewsDetail']);
 	Route::get('tin-tuc/{alias}',['as'=>'getListNews', 'uses'=>'IndexController@getListNews']);
 
+	Route::get('dich-vu',['as'=>'getListService', 'uses'=>'IndexController@getService']);
+	Route::get('dich-vu/{alias}.html',['as'=>'getServiceDetail', 'uses'=>'IndexController@getServiceDetail']);
+
 	Route::get('lien-he',['as'=>'getContact', 'uses'=>'IndexController@getContact']);
 	Route::post('lien-he',['as'=>'postContact', 'uses'=>'ContactController@postContact']);
 
 	Route::get('tim-kiem',['as'=>'search', 'uses'=>'IndexController@search']);
+	Route::get('filter/room', 'IndexController@filterRoom')->name('filter.room');
 	Route::post('newsletter',['as'=>'postNewsletter', 'uses'=>'IndexController@postNewsletter']);
 
 	Route::get('ajax/province/{id}',['as'=>'loadDistrictByProvince', 'uses'=>'IndexController@loadDistrictByProvince']);

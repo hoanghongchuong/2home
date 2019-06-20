@@ -52,7 +52,7 @@
               <tr>
                 <!-- <th style="width: 20px;"><input type="checkbox" name="chonhet" class="minimal" id="chonhet" /></th> -->
                 <th class="text-center with_dieuhuong">Stt</th>
-                <th>Danh mục cha</th>
+                <!-- <th>Danh mục cha</th> -->
                 <th>Tên danh mục</th>
                 <th class="text-center with_dieuhuong">Hiển thị</th>
                 <th class="text-center with_dieuhuong">Sửa</th>
@@ -64,7 +64,7 @@
               <tr>
                 <!-- <td><input type="checkbox" name="chon" id="chon" value="{{$item->id}}" class="chon" /></td> -->
                 <td class="text-center with_dieuhuong">{{$k+1}}</td>                
-                <td>
+                <!-- <td>
                 <?php  $parent = DB::table('product_categories')->where('id', $item->parent_id)->first();
                 ?>
                 @if(!empty($parent))
@@ -72,7 +72,7 @@
                 @else
                   {{ 'None' }}
                 @endif
-                </td>
+                </td> -->
                 <td>
                   <p>{{$item->name_vi}}</p>                   
                 </td>

@@ -7,10 +7,10 @@
         @if($is_admin->can('can_product_category'))
         <li class="treeview {{ @$_GET['type'] == 'san-pham' ? 'active' : '' }}">
           <a href="javascript:;">
-            <i class="fa fa-dashboard"></i> <span>Quản lý sản phẩm</span> <i class="fa fa-angle-left pull-right"></i>
+            <i class="fa fa-dashboard"></i> <span>Quản lý phòng</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="backend/productcate?type=san-pham"><i class="fa fa-circle-o"></i> <span>Danh mục</span></a></li>
+            <li><a href="backend/productcate?type=san-pham"><i class="fa fa-circle-o"></i> <span>Khu vực</span></a></li>
             @if($is_admin->can('can_product'))
             <li><a href="backend/product?type=san-pham"><i class="fa fa-circle-o"></i> <span>Danh sách</span></a></li>
             @endif          
@@ -54,9 +54,19 @@
             </ul>
         </li> -->
         @endif
-        <li class="{{ @$_GET['type'] == 'dich-vu' ? 'active' : '' }}">
-            <a href="backend/news?type=dich-vu"><i class="fa fa-circle-o"></i> <span>Dịch vụ</span></a>
+        <li class="treeview {{ @$_GET['type'] == 'dich-vu' ? 'active' : '' }}">
+            <a href="#">
+                <i class="fa fa-edit"></i> <span>Quản lý dịch vụ</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li class="{{ @$_GET['type'] == 'dich-vu' ? 'active' : '' }}">
+                    <a href="backend/news?type=dich-vu"><i class="fa fa-circle-o"></i> <span>Dịch vụ</span></a>
+                </li>
+                <li><a href="backend/slogan"><i class="fa fa-circle-o"></i> <span>Slogan</span></a></li>               
+            </ul>
         </li>
+        
         <li><a href="{{ asset('backend/langs?type=langs') }}"><i class="fa fa-circle-o"></i> <span>Ngôn ngữ website</span></a></li>        
         <!-- <li class="treeview">
           <a href="#">
@@ -71,7 +81,7 @@
           </ul>
         </li> -->
         <!-- <li><a href="backend/partner"><i class="fa fa-circle-o"></i> <span>Đối tác</span></a></li>        -->
-        <!-- <li><a href="backend/slogan"><i class="fa fa-circle-o"></i> <span>Tại sao chọn chúng tôi</span></a></li>        -->
+               
         <!-- <li><a href="backend/feedback"><i class="fa fa-circle-o"></i> <span>Ý kiến khách hàng</span></a></li>        -->
         @if($is_admin->can('can_contact'))
         <li class="{{ Request::segment(2) == 'contact' ? 'active' : '' }}"><a href="backend/contact"><i class="fa fa-envelope"></i> <span>Quản lý liên hệ</span></a></li>

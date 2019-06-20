@@ -49,7 +49,7 @@
 									
 									<div class="clearfix"></div>
 									<div class="form-group">
-								      	<label for="ten">Danh mục cha</label>
+								      	<label for="ten">Khu vực</label>
 								      	<select name="txtProductCate" class="form-control">
 
 								      		<option value="0">Chọn danh mục</option>
@@ -71,13 +71,25 @@
 								      	@endif
 									</div>
 									<div class="form-group">
-								      	<label for="ten">Giá bán(VNĐ)</label>
-								      	<input type="text" name="price_vi" onkeyup="FormatNumber(this);"  onKeyPress="return isNumberKey(event)" value="{{ number_format($data->price_vi,0,'',',') }}"  class="form-control" />
+								      	<label for="ten">Giá 2 giờ đầu (vnd)</label>
+								      	<input type="text" name="price_first_vi"  value="{{$data->price_first_vi}}"  class="form-control" />
 									</div>
 									<div class="form-group">
-								      	<label for="ten">Mã SP</label>
-								      	<input type="text" name="txtCode"  value="{{$data->code}}"  class="form-control" />
-									</div>									
+								      	<label for="ten">Giá 1 giờ tiếp theo (vnd)</label>
+								      	<input type="text" name="price_next_vi" value="{{$data->price_next_vi}}"  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Giá ngày (vnd)</label>
+								      	<input type="text" name="price_vi"  onkeyup="FormatNumber(this);"  onKeyPress="return isNumberKey(event)" value="{{$data->price_vi}}"  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Địa chỉ</label>
+								      	<input type="text" name="address_vi"  value="{{$data->address_vi}}"  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Mã nhúng bản đồ</label>
+								      	<input type="text" name="iframemap"  value="{{$data->iframemap}}"  class="form-control" />
+									</div>							
 								</div>
 								<div class="col-md-12 col-xs-12">
 									
@@ -101,8 +113,20 @@
 								      	<input type="text" name="name_en" id="name_en" value="{{ isset($data->name_en) ? $data->name_en : '' }}"  class="form-control" />
 									</div>
 									<div class="form-group">
-								      	<label for="ten">Giá bán($)</label>
-								      	<input type="text" name="price_en" onkeyup="FormatNumber(this);"  onKeyPress="return isNumberKey(event)" value="{{ number_format($data->price_en,0,'',',') }}"  class="form-control" />
+								      	<label for="ten">Giá 2 giờ đầu ($)</label>
+								      	<input type="text" name="price_first_en"  value="{{$data->price_first_en}}"  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Giá 1 giờ tiếp theo ($)</label>
+								      	<input type="text" name="price_next_en" value="{{$data->price_next_en}}"  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Giá ngày ($)</label>
+								      	<input type="text" name="price_en"  onkeyup="FormatNumber(this);"  onKeyPress="return isNumberKey(event)" value="{{$data->price_en}}"  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Địa chỉ</label>
+								      	<input type="text" name="address_en"  value="{{$data->address_en}}"  class="form-control" />
 									</div>
 		                    	</div>								
 							</div>

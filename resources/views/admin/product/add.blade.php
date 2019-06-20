@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('content')
-@section('controller','Product')
+@section('controller','Phòng')
 @section('action','Add')
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -53,7 +53,7 @@
 									</div>
 									<div class="clearfix"></div>
 									<div class="form-group">
-								      	<label for="ten">Danh mục cha</label>
+								      	<label for="ten">Khu vực</label>
 								      	<select name="txtProductCate" class="form-control">
 
 								      		<option value="0">Chọn danh mục</option>
@@ -75,12 +75,24 @@
 								      	@endif
 									</div>
 									<div class="form-group">
-								      	<label for="ten">Giá bán(VNĐ)</label>
+								      	<label for="ten">Giá 2 giờ đầu (vnd)</label>
+								      	<input type="text" name="price_first_vi"  value=""  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Giá 1 giờ tiếp theo (vnd)</label>
+								      	<input type="text" name="price_next_vi" value=""  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Giá ngày (vnd)</label>
 								      	<input type="text" name="price_vi"  onkeyup="FormatNumber(this);"  onKeyPress="return isNumberKey(event)" value=""  class="form-control" />
 									</div>
 									<div class="form-group">
-								      	<label for="ten">Mã SP</label>
-								      	<input type="text" name="txtCode"  value=""  class="form-control" />
+								      	<label for="ten">Địa chỉ</label>
+								      	<input type="text" name="address_vi"  value=""  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Mã nhúng bản đồ</label>
+								      	<input type="text" name="iframemap"  value=""  class="form-control" />
 									</div>
 								</div>
 								
@@ -117,9 +129,21 @@
 								      	<input type="text" name="name_en" id="name_en" value=""  class="form-control" />
 									</div>
 									<div class="form-group">
-								      	<label for="ten">Giá bán ($)</label>
-								      	<input type="text" name="price_en"  onkeyup="FormatNumber(this);"  onKeyPress="return isNumberKey(event)" value=""  class="form-control" />
-									</div>									
+								      	<label for="ten">Giá 2 giờ đầu($)</label>
+								      	<input type="text" name="price_first_en"  value=""  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Giá 1 giờ tiếp theo($)</label>
+								      	<input type="text" name="price_next_en" value=""  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Giá ngày($)</label>
+								      	<input type="text" name="price_en" value=""  class="form-control" />
+									</div>
+									<div class="form-group">
+								      	<label for="ten">Địa chỉ</label>
+								      	<input type="text" name="address_en"  value=""  class="form-control" />
+									</div>								
 		                    	</div>
 								
 							</div>

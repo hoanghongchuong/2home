@@ -9,7 +9,7 @@
     <small>@yield('action')</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="admin"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="backend"><i class="fa fa-dashboard"></i> Home</a></li>
     <li><a href="javascript:">@yield('controller')</a></li>
     <li class="active">@yield('action')</li>
   </ol>
@@ -28,6 +28,9 @@
 	                <ul class="nav nav-tabs">
 	                  	<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Tiếng việt</a></li>
 	                  	<li><a href="#tab_2" data-toggle="tab" aria-expanded="true">Tiếng anh</a></li>
+	                  	@if($_GET['type']=='dich-vu')
+	                  	<li><a href="#tab_5" data-toggle="tab" aria-expanded="true">Album ảnh</a></li>
+	                  	@endif
 	                  	<!-- <li><a href="#tab_3" data-toggle="tab" aria-expanded="true">Tiếng nhật</a></li>
 	                  	<li><a href="#tab_4" data-toggle="tab" aria-expanded="true">Tiếng hàn</a></li>
 	                  	<li><a href="#tab_5" data-toggle="tab" aria-expanded="true">Tiếng trung</a></li> -->
@@ -54,11 +57,10 @@
 									</div>
 									
 									<div class="clearfix"></div>
-									@if($_GET['type']!='tin-tuc')										
+									@if($_GET['type']!='tin-tuc' && $_GET['type']!='dich-vu')
 									<div class="form-group">
 								      	<label for="ten">Danh mục cha</label>
 								      	<select name="txtNewsCate" class="form-control">
-
 								      		<option value="0">Chọn danh mục</option>
 								      		<?php cate_parent($parent, 0, "--", 0)?>
 								      	</select>
@@ -184,6 +186,12 @@
 							
 	                    	<div class="clearfix"></div>
 	                	</div>
+	                	<div class="tab-pane" id="tab_5">
+	                		<div class="form-group">
+	                  			<label class="control-label">Chọn ảnh</label>
+                      			<input id="input-2" name="detailImg[]" type="file" class="file" multiple data-show-upload="false" data-show-caption="true" data-allowed-file-extensions='["jpeg", "jpg", "png", "gif"]'>
+	                  		</div>
+	                  	</div>
 	                	<!-- <div class="tab-pane" id="tab_3">
 	                  		<div class="row">
 		                  		<div class="col-md-6 col-xs-12">

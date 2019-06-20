@@ -68,6 +68,13 @@ class ProductController extends Controller
             $product->cate_id = 0;
         }
 
+        $product->price_first_en = $request->price_first_en;
+        $product->price_first_vi = $request->price_first_vi;
+        $product->price_next_vi = $request->price_next_vi;
+        $product->price_next_en = $request->pricenext_en;
+        $product->iframemap = $request->iframemap;
+        $product->address_vi = $request->address_vi;
+        $product->address_en = $request->address_en;
         if($request->alias_vi){
             $product->alias_vi = $request->alias_vi;
         }else{
@@ -274,6 +281,13 @@ class ProductController extends Controller
                 $product->noibat = 0;
             }
             
+            $product->price_first_en = $request->price_first_en;
+            $product->price_first_vi = $request->price_first_vi;
+            $product->price_next_vi = $request->price_next_vi;
+            $product->price_next_en = $request->price_next_en;
+            $product->iframemap = $request->iframemap;
+            $product->address_vi = $request->address_vi;
+            $product->address_en = $request->address_en;
             $product->user_id       = Auth::user()->id;
 
             // dd($product->description);
